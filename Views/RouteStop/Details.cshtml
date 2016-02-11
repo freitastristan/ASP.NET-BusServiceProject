@@ -1,0 +1,42 @@
+﻿@model A4BusService.Models.routeStop
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>routeStop</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.offsetMinutes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offsetMinutes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.busRoute.routeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.busRoute.routeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.busStop.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.busStop.location)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.routeStopId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

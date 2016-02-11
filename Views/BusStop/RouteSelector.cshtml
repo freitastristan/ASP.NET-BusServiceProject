@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Routes Using Stop " + ViewBag.busStopNumber;
+}
+
+<h2>@ViewBag.title</h2>
+@using (Html.BeginForm("RouteStopSchedule", "RouteSchedule"))
+{ 
+<p>
+    <b>Select route to view its schedule: </b>
+    @Html.DropDownList("routeStopId")
+</p>
+<input type="submit" value="View Schedule" />
+}
+
