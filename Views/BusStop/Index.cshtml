@@ -1,0 +1,52 @@
+﻿@model IEnumerable<A4BusService.Models.busStop>
+
+@{
+    ViewBag.Title = "Bus Stops";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Bus Stop Number", "Index", new { orderby= "busStopNumber"})
+        </th>
+        <th>
+            @Html.ActionLink("Location", "Index", new { orderby = "location" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.locationHash)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.goingDowntown)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.busStopNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.locationHash)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.goingDowntown)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.busStopNumber }) |
+            @Html.ActionLink("Details", "Details", new { id=item.busStopNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.busStopNumber }) |
+            @Html.ActionLink("Bus Schedules", "RouteSelector", new { busStopNumber = item.busStopNumber })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<A4BusService.Models.routeStop>
+
+@{
+    ViewBag.Title = "Stops for Route " + Session["busRouteCode"] + " - " + Session["routeName"];
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Attach Stop to Route", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.busStopNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.busStop.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offsetMinutes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.busStopNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.busStop.location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.offsetMinutes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.routeStopId }) |
+            @Html.ActionLink("Detach Stop from Route", "Delete", new { id=item.routeStopId })
+        </td>
+    </tr>
+}
+
+</table>

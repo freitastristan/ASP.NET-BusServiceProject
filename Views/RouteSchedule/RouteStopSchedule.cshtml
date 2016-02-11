@@ -1,0 +1,25 @@
+﻿@model IEnumerable<A4BusService.Models.routeSchedule>
+
+@{
+    ViewBag.Title = "Stop Schedule for " + ViewBag.busRoute;
+}
+
+<h1>@ViewBag.Title</h1>
+<p style="font-weight: bold">Stop: @ViewBag.busStop</p>
+
+<h2>Mon-Fri</h2>
+@foreach (var item in Model) 
+{
+    if (item.isWeekDay) 
+    {
+        @item.startTime.ToString();<br />
+    }
+}
+<h2>Sat-Sun & Holidays</h2>
+@foreach (var item in Model)
+{
+    if (! item.isWeekDay)
+    {
+        @item.startTime.ToString();<br />
+    }
+}
